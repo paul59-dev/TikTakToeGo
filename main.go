@@ -1,11 +1,8 @@
 package main
 
-import "fmt"
-
-type Player struct {
-	Pseudo string
-	Pawn   string
-}
+import (
+	"paul/tictactoe/packages/player"
+)
 
 func main() {
 	var (
@@ -19,6 +16,8 @@ func main() {
 		matrix[i] = make([]string, column) // inject number of column into second slice
 	}
 
+	player.GetPlayer()
+
 	// Init the matrix
 	// The game board is not formed here
 	for i := 0; i < row; i++ {
@@ -27,24 +26,13 @@ func main() {
 		}
 	}
 
-	player1 := Player{
-		Pseudo: "Paul",
-		Pawn:   "🔵",
-	}
-
-	player2 := Player{
-		Pseudo: "John",
-		Pawn:   "🔴",
-	}
-
-	fmt.Println(player1)
-	fmt.Println(player2)
-	// Form the matrix for make the game board
-	for i := 0; i < row; i++ { // create row to 3 rows
-		for j := 0; j < column; j++ { // create column
-			fmt.Printf("%s", matrix[i][j]) // [0][0], [0][1], [0][2] == 3, finish the loop j
-		}
-		fmt.Println()
-	}
-
+	// for {
+	// 	// Form the matrix for make the game board
+	// 	for i := 0; i < row; i++ { // create row to 3 rows
+	// 		for j := 0; j < column; j++ { // create column
+	// 			fmt.Printf("%s", matrix[i][j]) // [0][0], [0][1], [0][2] == 3, finish the loop j
+	// 		}
+	// 		fmt.Println()
+	// 	}
+	// }
 }
