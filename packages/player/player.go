@@ -11,7 +11,7 @@ type Game struct {
 	Players []Player
 }
 
-func GetPlayer() {
+func GetPlayer() Game {
 	var (
 		player      Player
 		nbPlayer    int  = 2
@@ -28,7 +28,7 @@ func GetPlayer() {
 		_, err := fmt.Scan(&player.Pseudo)
 		if err != nil {
 			fmt.Println("Errur lors de la saisie: ", err)
-			return
+			return game
 		}
 
 		if len(player.Pseudo) > 10 {
@@ -41,7 +41,7 @@ func GetPlayer() {
 			_, err = fmt.Scan(&colorPlayer)
 			if err != nil {
 				fmt.Println("Errur lors de la saisie: ", err)
-				return
+				return game
 			}
 
 			if colorPlayer != 1 && colorPlayer != 2 {
@@ -68,9 +68,6 @@ func GetPlayer() {
 		}
 	}
 
-	// Affichage des joueurs dans le jeu
-	for _, player := range game.Players {
-		fmt.Printf("Joueur : %s, Pion : %s\n", player.Pseudo, player.Pawn)
-	}
+	return game
 
 }
